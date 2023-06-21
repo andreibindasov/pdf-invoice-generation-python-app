@@ -42,4 +42,20 @@ for fp in filepaths:
         pdf.cell(w=30, h=9, txt=str(row["price_per_unit"]), border=1, align="C")
         pdf.cell(w=30, h=9, txt=str(row["total_price"]), border=1, ln=1, align="C")
 
+    total_sum = df["total_price"].sum()
+    pdf.set_font(family="Arial", size=13, style="B")
+    pdf.set_text_color(81, 81, 81)
+    pdf.cell(w=30, h=9, txt="", border=1)
+    pdf.cell(w=70, h=9, txt="", border=1)
+    pdf.cell(w=30, h=9, txt="", border=1, align="C")
+    pdf.cell(w=30, h=9, txt="", border=1, align="C")
+    pdf.cell(w=30, h=9, txt=str(total_sum), border=1, ln=1, align="C")
+
+    # Add total footnote
+    pdf.set_font(family="Times", size=14, style="I")
+    pdf.set_text_color(11, 9, 222)
+    pdf.cell(w=0, h=9, txt=f"The total amount due ${total_sum}", ln=1)
+    pdf.cell(w=45, h=9, txt="by :andrei:bindasov")
+    pdf.image("stamp.png", w=15)
+
     pdf.output(f"PDFs/{invoice_nr}.pdf")
