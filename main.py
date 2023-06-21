@@ -25,7 +25,7 @@ for fp in filepaths:
     columns = list(df.columns)
     columns = [c.replace("_", " ").title() for c in columns]
 
-    pdf.set_font(family="Arial", size=9, style="IBa")
+    pdf.set_font(family="Arial", size=9, style="IB")
     pdf.set_text_color(11, 9, 222)
     pdf.cell(w=30, h=9, txt=columns[0], border=1, align="L")
     pdf.cell(w=70, h=9, txt=columns[1], border=1, align="L")
