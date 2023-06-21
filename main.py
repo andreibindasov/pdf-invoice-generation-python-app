@@ -58,4 +58,20 @@ for fp in filepaths:
     pdf.cell(w=45, h=9, txt="by :andrei:bindasov")
     pdf.image("stamp.png", w=15)
 
+    # Multi-cell example
+    pdf.set_font(family="Courier", size=7, style="I")
+    pdf.set_text_color(190, 190, 253)
+    content = """
+       11 And I will establish my covenant with you; neither shall all flesh be cut off any more by the waters of a flood; 
+       neither shall there any more be a flood to destroy the earth.
+       12 And God said, This is the token of the covenant which I make between me and you and every living creature that 
+       is with you, for perpetual generations:
+       13 I do set my bow in the cloud, and it shall be for a token of a covenant between me and the earth.
+       14 And it shall come to pass, when I bring a cloud over the earth, that the bow shall be seen in the cloud:
+       15 And I will remember my covenant, which is between me and you and every living creature of all flesh; and the 
+       waters shall no more become a flood to destroy all flesh.
+       """
+
+    pdf.multi_cell(w=0, h=6, txt=content)
+
     pdf.output(f"PDFs/{invoice_nr}.pdf")
